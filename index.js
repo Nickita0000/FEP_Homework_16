@@ -12,8 +12,10 @@ function onButtonConfirmClick(){
             return response.json()
         })
         .then((user) => {
-            console.log(user)
             renderUserData(user)
+        })
+        .catch((error) => {
+            console.log(error.message)
         })
 }
 
