@@ -5,9 +5,9 @@ const container = document.querySelector('#container')
 button.addEventListener('click', onButtonConfirmClick)
 
 function onButtonConfirmClick(){
-    const userName = getUserName()
+    const { login } = getUserName()
     clearInput()
-    fetch(` https://api.github.com/users/${userName.login}`)
+    fetch(` https://api.github.com/users/${login}`)
         .then((response) => {
             return response.json()
         })
@@ -15,7 +15,7 @@ function onButtonConfirmClick(){
             renderUserData(user)
         })
         .catch((error) => {
-            console.log(error.message)
+            console.error(error)
         })
 }
 
